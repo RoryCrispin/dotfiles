@@ -1,0 +1,29 @@
+"amixer -q sset Master 5%+"
+  XF86AudioRaiseVolume
+"amixer -q sset Master 5%-"
+  XF86AudioLowerVolume
+"amixer -q sset Master toggle" 
+  XF86AudioMute
+"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+XF86AudioPlay
+"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+  b:10
+
+"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+XF86AudioNext
+"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+XF86AudioPrev
+
+"spotify"
+   Shift+Mod4+s
+"firefox"
+   Shift+Mod4+f
+"xfce4-screenshooter -r -s ~/Downloads/"
+   Shift+Alt+2
+"shutdown now"
+  Alt+F8
+"shutdown -r now"
+  Alt+F9
+"systemctl suspend"
+  Alt + F7
+
