@@ -163,6 +163,8 @@ bar {
 	status_command i3blocks
 }
 exec numlockx
+exec setxkbmap gb
+exec pulseaudio --start
 exec xbindkeys
 exec spotify
 exec firefox
