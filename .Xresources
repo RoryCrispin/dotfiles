@@ -38,3 +38,5 @@ Xft.lcdfilter: lcddefault
 
 
 URxvt.font: xft:SourceCodePro:pixelsize=11
+URxvt*scrollBar: false
+

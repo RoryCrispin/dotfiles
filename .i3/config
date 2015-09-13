@@ -168,3 +168,5 @@ exec pulseaudio --start
 exec xbindkeys
 exec spotify
 exec firefox
+exec xscreensaver -no-splash
+exec irexec -d

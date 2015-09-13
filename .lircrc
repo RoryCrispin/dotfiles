@@ -1,0 +1,43 @@
+begin 
+	button = KEY_VOLUMEUP
+	prog = irexec
+	config = amixer -q sset Master 5%+
+	repeat = 1
+end
+begin 
+	button = KEY_VOLUMEDOWN
+	prog = irexec
+	config = amixer -q sset Master 5%-
+	repeat = 1
+end
+
+begin 
+	button = KEY_NEXTSONG
+	prog = irexec
+	config = dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next 
+	repeat = 0
+end
+
+begin 
+	button = KEY_PREVIOUSSONG
+	prog = irexec
+	config = dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+	repeat = 0
+end
+
+begin 
+	button = KEY_PLAY
+	prog = irexec
+	config = dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+	repeat = 0
+end
+
+
+begin 
+	button = KEY_MENU
+	prog = irexec
+	config = xscreensaver-command -activate
+	repeat = 0
+end
+
+
