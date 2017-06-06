@@ -1,6 +1,5 @@
 set nocompatible              " be iMproved, required
-filetype plugin indent on                 " required
-syntax on
+
 set laststatus=2
 set ruler
 set ignorecase
@@ -11,7 +10,10 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-scripts/dbext.vim'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'neovimhaskell/haskell-vim'
 Plugin 'soramugi/auto-ctags.vim'
+Plugin 'Quramy/tsuquyomi'
 Plugin 'alvan/vim-assistant'
 Plugin 'scrooloose/syntastic'
 Plugin 'ervandew/supertab'
@@ -24,13 +26,15 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Bundle 'bling/vim-airline'
-Plugin 'flazz/vim-colorschemes'
+"Plugin 'flazz/vim-colorschemes'
 Plugin 'jaxbot/semantic-highlight.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'eagletmt/ghcmod-vim'
+Plugin 'eagletmt/neco-ghc'
 call vundle#end()            " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
-color 256-grayvim
+"color 256-grayvim
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let macvim_skip_colorscheme = 1
@@ -38,7 +42,20 @@ let macvim_skip_colorscheme = 1
 "NERDTree button
 
 map § :NERDTreeToggle<CR>
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
 
+
+
+
+
+filetype plugin indent on                 " required
+syntax on
 
 "Create newlines without entering insert mode
 nmap <S-Enter> O<Esc>j
@@ -53,8 +70,8 @@ set mat=2"
 map <F5> :source ~/.vimrc
 
 " Run c files inline
-map <C-Enter> :!gcc % -o runc && ./runc 
- 
+map <C-Enter> :!gcc % -o runc && ./runc
+
 "variable syntax higlighting
 :nnoremap <Leader>s :SemanticHighlightToggle<cr>
 
@@ -110,7 +127,7 @@ iabbrev </ </<C-X><C-O>
 " Cursor shapes
   let &t_SI .= "\<Esc>[5 q"
   let &t_EI .= "\<Esc>[1 q"
-  
+
 "
 " Brief help
 " :PluginList       - lists configured plugins
@@ -121,6 +138,17 @@ iabbrev </ </<C-X><C-O>
 " see :h vundle for more details or wiki for FAQ
 let NERDTreeIgnore=['\.pyc$', '\.o$', '\~$']
 let g:auto_ctags = 1
+
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
+
+"Show line endings
+set listchars=tab:▸\ ,eol:¬
+set list
 
 
 "map <Leader>v :w <CR> :!gcc -o buildc % && ./buildc <CR>
@@ -134,13 +162,13 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
 set cursorline
 set mouse=a
-set hlsearch 
+set hlsearch
 
 "Stop that annoying window
 map q: :q
@@ -149,3 +177,13 @@ map q: :q
 :set hidden
 :set backspace=2
 
+"keep matches in the centre of the screen
+noremap n nzzzv
+noremap N Nzzzv
+
+
+"setup GHC completeion
+map <silent> tw :GhcModTypeInsert<CR>
+map <silent> ts :GhcModSplitFunCase<CR>
+map <silent> tq :GhcModType<CR>
+map <silent> te :GhcModTypeClear<CR>
