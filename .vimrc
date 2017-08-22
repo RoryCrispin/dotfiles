@@ -38,7 +38,7 @@ Plugin 'scrooloose/nerdtree'
 Bundle 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'jaxbot/semantic-highlight.vim'
-Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'Yggdroot/indentLine'
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'eagletmt/neco-ghc'
 Plugin 'airblade/vim-gitgutter'
@@ -174,10 +174,10 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
+let g:syntastic_python_checkers = ['pyflakes']
 set cursorline
 set mouse=a
 set hlsearch
@@ -209,3 +209,13 @@ nnoremap <Leader>a :Ack!<Space>
 noremap <Leader>/ :LustyBufferGrep<CR>
 noremap <Leader>o :LustyFilesystemExplorer<CR>
 noremap <Leader>, :LustyBufferExplorer<CR>
+
+map <Leader><up> :tabr<cr>
+map <Leader><down> :tabl<cr>
+map <Leader><left> :tabp<cr>
+map <Leader><right> :tabn<cr>
+
+highlight ColorColumn ctermbg=8
+set colorcolumn=80
+
+let g:indentLine_char = '.'
