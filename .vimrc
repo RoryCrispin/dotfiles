@@ -36,6 +36,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'scrooloose/nerdtree'
 Bundle 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'jaxbot/semantic-highlight.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'eagletmt/ghcmod-vim'
@@ -48,7 +49,7 @@ call vundle#end()            " required
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 0
 let macvim_skip_colorscheme = 1
-
+let g:airline_theme='base16'
 "NERDTree button
 
 map § :NERDTreeToggle<CR>
@@ -207,4 +208,4 @@ nnoremap <Leader>a :Ack!<Space>
 " LustyExplorer bindings
 noremap <Leader>/ :LustyBufferGrep<CR>
 noremap <Leader>o :LustyFilesystemExplorer<CR>
-noremap <Leader>, :LustyBufferExplorer<CR>
+n
