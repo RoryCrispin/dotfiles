@@ -6,37 +6,44 @@ Xft.autohint: false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
+! special
+*.foreground:   #f8f8f2
+*.background:   #272822
+*.cursorColor:  #f8f8f2
+
+! black
+*.color0:       #272822
+*.color8:       #75715e
+
+! red
+*.color1:       #f92672
+*.color9:       #f92672
+
+! green
+*.color2:       #a6e22e
+*.color10:      #a6e22e
+
+! yellow
+*.color3:       #f4bf75
+*.color11:      #f4bf75
+
+! blue
+*.color4:       #66d9ef
+*.color12:      #66d9ef
+
+! magenta
+*.color5:       #ae81ff
+*.color13:      #ae81ff
+
+! cyan
+*.color6:       #a1efe4
+*.color14:      #a1efe4
+
+! white
+*.color7:       #f8f8f2
+*.color15:      #f9f8f5
 
 
-*background: #0f0f0f
-*foreground: #c8c8c8
- 
-!black
-*color0:  #251f1f
-*color8:  #5e5e5e
-!red
-*color1:  #eb4509
-*color9:  #eb4509
-!green
-*color2:  #94e76b
-*color10: #95e76b
-!yellow
-*color3:  #ffac18
-*color11: #ffac18
-!blue
-*color4:  #46aede
-*color12: #46aede
-!magenta
-*color5:  #e32c57
-*color13: #e32c57
-!cyan
-*color6:  #d6dbac
-*color14: #d6dbac
-!white
-*color7:  #efefef
-*color15: #efefef
 
-
-URxvt.font: xft:SourceCodePro:pixelsize=11
+URxvt.font: xft:SourceCodePro:pixelsize=13\ for\ Powerline:pixelsize=12
 URxvt*scrollBar: false
-
