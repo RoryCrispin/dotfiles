@@ -1,4 +1,5 @@
 set nocompatible              " be iMproved, required
+set number
 
 set laststatus=2
 set ruler
@@ -9,7 +10,11 @@ set noswapfile
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'sophacles/vim-bundle-mako'
+Plugin 'saltstack/salt-vim'
+Plugin 'vim-scripts/mru.vim'
 Plugin 'vim-scripts/dbext.vim'
+Plugin 'spacewander/openresty-vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'neovimhaskell/haskell-vim'
 Plugin 'soramugi/auto-ctags.vim'
@@ -18,25 +23,30 @@ Plugin 'alvan/vim-assistant'
 Plugin 'scrooloose/syntastic'
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'kien/ctrlp.vim'
+Plugin 'junegunn/fzf'
 Plugin 'majutsushi/tagbar'
+Plugin 'vim-scripts/LustyExplorer'
 Plugin 'Shougo/neocomplete.vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+"Plugin 'valloric/YouCompleteMe'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-fugitive'
+Plugin 'qpkorr/vim-bufkill'
 Plugin 'scrooloose/nerdtree'
 Bundle 'bling/vim-airline'
-"Plugin 'flazz/vim-colorschemes'
 Plugin 'jaxbot/semantic-highlight.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'eagletmt/neco-ghc'
+Plugin 'airblade/vim-gitgutter'
 call vundle#end()            " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "color 256-grayvim
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 let macvim_skip_colorscheme = 1
 
 "NERDTree button
@@ -85,7 +95,7 @@ noremap <Leader>q :q<CR>
 noremap <Leader>x :x<CR>
 noremap <leader>a $
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
-nnoremap <leader>. :CtrlPTag<cr>
+nnoremap <leader>. :FZF<cr>
 " Copy and paste to clipboard with <space>p <space>y
 vmap <Leader>y "+y
 vmap <Leader>d "+d
@@ -108,6 +118,7 @@ map <Leader>l <C-W>l
 
 
 map <F1> :NERDTree<CR>
+map <F2> :NERDTreeFind<CR>
 let macvim_skip_colorscheme = 1
 "Autoclose brackets
 iabbrev </ </<C-X><C-O>
@@ -187,3 +198,13 @@ map <silent> tw :GhcModTypeInsert<CR>
 map <silent> ts :GhcModSplitFunCase<CR>
 map <silent> tq :GhcModType<CR>
 map <silent> te :GhcModTypeClear<CR>
+
+" Ack stuff for searching 
+let g:ackprg = 'ag --vimgrep'
+cnoreabbrev Ack Ack!
+nnoremap <Leader>a :Ack!<Space>
+
+" LustyExplorer bindings
+noremap <Leader>/ :LustyBufferGrep<CR>
+noremap <Leader>o :LustyFilesystemExplorer<CR>
+noremap <Leader>, :LustyBufferExplorer<CR>
