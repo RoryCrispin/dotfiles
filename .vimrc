@@ -208,4 +208,4 @@ nnoremap <Leader>a :Ack!<Space>
 " LustyExplorer bindings
 noremap <Leader>/ :LustyBufferGrep<CR>
 noremap <Leader>o :LustyFilesystemExplorer<CR>
-n
+noremap <Leader>, :LustyBufferExplorer<CR>
