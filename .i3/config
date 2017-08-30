@@ -75,7 +75,7 @@ client.focused_inactive   $gray2   $gray2   #FFFFFF   #000000
 client.unfocused          $gray2   $gray2   #FFFFFF   #000000
 
 # split in horizontal orientation
-bindsym $mod+g split h
+bindsym $mod+V split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -100,17 +100,34 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-# switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+# show custom workspace opener
+bindsym $mod+m exec i3-input -F 'workspace %s' -P 'go to workspace: '
+
+
+
+# mod p brings up a list of windows/workspaces/tags to focus
+bindsym $mod+p exec i3finder
+
+# mod g brings up a list of windows/workspaces/tags to move to the current area
+bindsym $mod+g exec i3finder -a move
+
+# mod b triggers the back manuever
+bindsym $mod+b exec i3finder -a back
+
+
+# bind mod [num] to change to a workspace, but use msg parameter
+# so that these motions are added to our history.
+bindsym $mod+1 exec i3finder -a msg -i 'workspace 1'
+bindsym $mod+2 exec i3finder -a msg -i 'workspace 2'
+bindsym $mod+3 exec i3finder -a msg -i 'workspace 3'
+bindsym $mod+4 exec i3finder -a msg -i 'workspace 4'
+bindsym $mod+5 exec i3finder -a msg -i 'workspace 5'
+bindsym $mod+6 exec i3finder -a msg -i 'workspace 6'
+bindsym $mod+7 exec i3finder -a msg -i 'workspace 7'
+bindsym $mod+8 exec i3finder -a msg -i 'workspace 8'
+bindsym $mod+9 exec i3finder -a msg -i 'workspace 9'
+bindsym $mod+0 exec i3finder -a msg -i 'workspace 10'
+
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
