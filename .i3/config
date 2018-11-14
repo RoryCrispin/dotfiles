@@ -160,6 +160,7 @@ mode "resize" {
 # the base pycharm IDE - I just want all popup windows to float, 
 # ie the diff windows ect. 
 for_window [class="^.*jetbrains-pycharm.*$"] floating enable
+for_window [class="^.*jetbrains-pycharm.*$"] focus # Fixes bug where leaving and re-entering ij wouldn't focus on the text
 
 bindsym $mod+r mode "resize"
 
@@ -186,11 +187,15 @@ exec i3-msg 'workspace Charm; exec sh ~/Pycharm/bin/pycharm.sh'
 exec urxvt -name portal-builder; move scratchpad
 exec urxvt -name node-builder; move scratchpad
 exec urxvt -name git; move scratchpad
+exec urxvt -name script-kid; move scratchpad
+exec urxvt -name capi-builder; move scratchpad
 
 # Setup keybinds for quick access build machines
 bindsym $mod+p [instance="portal-builder"] scratchpad show
 bindsym $mod+n [instance="node-builder"] scratchpad show
 bindsym $mod+o [instance="git"] scratchpad show
+bindsym $mod+c [instance="capi-builder"] scratchpad show
+bindsym $mod+i [instance="script-kid"] scratchpad show
 
 # Media keys for current keyboard, would be more sensible to use Xbindkeys for this 
 # but I like the simplicity of having i3 manage all of my keybindings...
@@ -198,9 +203,8 @@ bindsym $mod+F10 exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spo
 bindsym $mod+F11 exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
 bindsym $mod+F12 exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 
-# call screenlayout script
+bindsym $mod+x exec xautolock -locknow
+ # call screenlayout script
 exec .screenlayout/layout.sh
 
-
-#gaps inner all set 20
-#gaps outer current plus 5
+exec xautolock -time 5 -locker "i3lock -t -i ~/Documents/izz.png"
